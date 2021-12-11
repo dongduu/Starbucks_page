@@ -18,7 +18,6 @@ searchInputEl.addEventListener('blur', function () {
 const badgeEl = document.querySelector('header .badges');
 
 window.addEventListener('scroll', _.throttle(function () {
-    console.log(1);
     if (window.scrollY > 500) {
         // gsap.to(요소, 지속시간, 옵셥) 
         gsap.to(badgeEl, .6, {
@@ -65,3 +64,17 @@ new Swiper('.promotion .swiper-container', {
         nextEl: '.promotion .swiper-next'
     }
 });
+
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+let IsHidePromotion = false;
+promotionToggleBtn.addEventListener('click', function() {
+    IsHidePromotion = !IsHidePromotion;
+    if (IsHidePromotion) {
+        // 숨김 처리
+        promotionEl.classList.add('hide');
+    } else {
+        // 보임 처리
+        promotionEl.classList.remove('hide');
+    }
+})
